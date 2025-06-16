@@ -147,7 +147,3 @@ postgres://postgres:postgrespassword@localhost:5432/db_8080
 ---
 
 如有疑问请联系维护者。
-# hasura-deployer
-# hasura-deployer
-# hasura-deployer
-# hasura-deployer
