@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    networks:
+      - hasura-network
+
+volumes:
+  db_data:
+
+networks:
+  hasura-network:
+    external: true
