@@ -29,8 +29,8 @@ docker-compose -f postgres.docker-compose.yml up -d
 为每个 Hasura 项目创建独立数据库（如 db_8080、db_8081）：
 
 ```bash
-docker exec -it hasura-postgres-1 psql -U postgres -c "CREATE DATABASE db_8080;"
-docker exec -it hasura-postgres-1 psql -U postgres -c "CREATE DATABASE db_8081;"
+docker exec -it hasura-deployer-postgres-1 psql -U postgres -c "CREATE DATABASE db_8080;"
+docker exec -it hasura-deployer-postgres-1 psql -U postgres -c "CREATE DATABASE db_8081;"
 ```
 
 如需更多项目，按需创建更多数据库。
@@ -72,7 +72,7 @@ docker-compose -f postgres.docker-compose.yml down -v
 ## 7. 常见问题
 
 - **端口被占用**：请先释放端口或修改 compose 文件端口。
-- **数据库连接失败**：请确保所有服务都在 `hasura-network` 网络下，数据库 host 填写 `hasura-postgres-1`。
+- **数据库连接失败**：请确保所有服务都在 `hasura-network` 网络下，数据库 host 填写 `hasura-deployer-postgres-1`。
 - **添加新项目**：复制一份 Hasura compose 文件，修改端口和数据库名，创建新数据库即可。
 
 ---
@@ -99,7 +99,7 @@ docker-compose -f postgres.docker-compose.yml down -v
   - 作用：指定连接的 PostgreSQL 数据库。
   - 示例：
     ```yaml
-    HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@hasura-postgres-1:5432/db_8080
+    HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@hasura-deployer-postgres-1:5432/db_8080
     ```
 
 - 其他常用环境变量：
