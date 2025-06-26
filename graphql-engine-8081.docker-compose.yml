@@ -2,12 +2,12 @@ version: '3.6'
 
 services:
   graphql-engine-8081:
-    image: hasura/graphql-engine:v2.46.0
+    image: crpi-p29gej7egb3wfdey.cn-beijing.personal.cr.aliyuncs.com/hasura-deployer/hasura-graphql-engine:v2.46.0
     ports:
       - "8081:8080"
     restart: always
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@hasura-postgres-1:5432/db_8081
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@hasura-deployer-postgres-1:5432/db_8081
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
